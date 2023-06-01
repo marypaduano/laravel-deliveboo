@@ -1,0 +1,47 @@
+.card-auth{
+    width: 399px;
+    margin: 0 auto;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button-auth{
+    margin: 0 auto;
+}
+
+.label{
+    font-size: 13px;
+}
+
+.card-body-auth{
+    padding: 0 60px;
+}
+
+.btn-auth{
+    background-color: #FF5B00;
+    border-color: #FF5B00;
+    padding: 10px;
+    border-radius: 999px;
+    width: 80%;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+.btn-auth:hover{
+    background-color: #FFCC1D;
+    color: white;
+}
+
+.cookie{
+    font-size: 12px;
+    text-align: center;
+}
+
+.body-auth{
+    background-color: #FCFCFB;
+}
+
+.forget{
+    font-size: 13px;
+}

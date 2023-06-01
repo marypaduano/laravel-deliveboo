@@ -1,0 +1,28 @@
+.section-homeRestaurant {
+    background-color: rgb(255, 204, 29);
+    // background-image: linear-gradient(rgb(255, 204, 0), rgba(214, 24, 24, 1));
+}
+
+.card {
+    background-color: transparent;
+
+
+img {
+    width: 18rem;
+    height: 12rem;
+}
+
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+}
+
+// .button-edit-delete {
+//     margin-top: auto;
+// }
+
+
+

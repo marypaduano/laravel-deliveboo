@@ -29,6 +29,7 @@ class RestaurantSeeder extends Seeder
             $new_restaurant->address = $faker->streetAddress();
             $new_restaurant->vat = $faker->regexify('[A-Z]{5}[0-9]{6}');
             $new_restaurant->user_id = $faker->randomElement($user_ids);
+            $new_restaurant->restaurant_image = $faker->image();
             $new_restaurant->save();
 
             $new_restaurant->types()->attach($faker->randomElements($type_ids, rand(0, 5)));

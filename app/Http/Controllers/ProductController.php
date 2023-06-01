@@ -20,7 +20,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -66,12 +68,11 @@ class ProductController extends Controller
         if ($request->hasFile('thumb')) {
             $image = Storage::put('uploads', $data['thumb']);
             $data['thumb'] = $image;
-            // dd($image);
         }
 
         $new_product = Product::create($data);
 
-        return to_route('restaurants.index', $new_product);
+        return to_route('products.index', $new_product);
     }
 
     /**
@@ -130,7 +131,10 @@ class ProductController extends Controller
             $data['visible'] = true;
         }
 
-        
+        if ($request->hasFile('thumb')) {
+            $image = Storage::put('uploads', $data['thumb']);
+            $data['thumb'] = $image;
+        }
 
         $product->update($data);
 

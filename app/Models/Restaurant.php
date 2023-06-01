@@ -17,7 +17,8 @@ class Restaurant extends Model
         'restaurant_name',
         'address',
         'vat',
-        'user_id'
+        'user_id',
+        'restaurant_image'
     ];
 
     public function types(){

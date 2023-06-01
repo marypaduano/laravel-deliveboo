@@ -14,6 +14,13 @@
                 @enderror
         </div>
         <div class="mb-3">
+            <label for="restaurant_image" class="form-label">Immagine ristorante</label>
+            <input type="file" accept="image/*" required max="1000000" title="inserisci un immagine max 1MB" class="form-control @error('restaurant_image') is-invalid @enderror" value="{{old('restaurant_image')}}"  id="restaurant_image" name="restaurant_image" onchange="validateImage()">
+                @error('restaurant_image')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+        </div>
+        <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Indirizzo</label>
             <input type="text" pattern="[a-zA-Z0-9 ,]+"minlength="5" title="L'indirizzo deve contenere solo lettere e numeri e avere almeno 5 caratteri" class="form-control @error('address') is-invalid @enderror" value="{{old('address')}}"  id="exampleFormControlInput1" name="address" required>
                 @error('address')

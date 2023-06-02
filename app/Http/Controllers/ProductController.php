@@ -71,6 +71,7 @@ class ProductController extends Controller
         $new_product = Product::create($data);
 
         return to_route('restaurants.show', $restaurant);
+
     }
 
     /**
@@ -136,7 +137,7 @@ class ProductController extends Controller
 
         $product->update($data);
 
-        return to_route('restaurants.index', $product);
+        return to_route('dashboard', $product);
     }
 
     /**
@@ -149,6 +150,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return to_route('restaurants.index');
+        return to_route('dashboard');
     }
 }

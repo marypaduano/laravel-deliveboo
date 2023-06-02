@@ -73,7 +73,7 @@ class RestaurantController extends Controller
         }
         
 
-        return to_route('restaurants.show', $new_restaurant);
+        return to_route('dashboard', $new_restaurant);
     }
 
     /**
@@ -142,6 +142,7 @@ class RestaurantController extends Controller
         }
 
         return to_route('restaurants.index', $restaurant);
+
     }
 
     /**
@@ -154,6 +155,6 @@ class RestaurantController extends Controller
     {
         $restaurant->delete();
       
-        return to_route('restaurants.index');
+        return to_route('dashboard');
     }
 }

@@ -10,6 +10,9 @@
 
     <title>DeliveBoo</title>
 
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,6 +26,9 @@
 <body>
     <div id="app">
 
+        <header>
+            @include('partials.header')
+        </header>        
 
         <nav class="navbar nav-main navbar-expand-md navbar-light shadow-sm">
             <div class="container-fluid">
@@ -91,6 +97,11 @@
         <main class="main-content">
             @yield('content')
         </main>
+
+        <footer>
+            @include('partials.footer')
+        </footer>
+        
     </div>    
 </body>
 

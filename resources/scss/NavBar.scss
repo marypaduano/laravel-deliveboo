@@ -1,3 +1,8 @@
 .nav-main {
-    background-color: $yellow !important;
+    background-color: $yellow;
+
+
+    .logo_laravel img {
+        height: 80px;
+    }
 }

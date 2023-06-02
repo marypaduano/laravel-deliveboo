@@ -19,8 +19,8 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        
     }
 
     /**
@@ -59,19 +59,19 @@ class ProductController extends Controller
             $data['visible'] = true;
         }
 
-        $restaurant_id = Auth::user()->restaurants()->first();
+        $restaurant = Auth::user()->restaurants()->first();
 
-        $data['restaurant_id'] = $restaurant_id->id;
+        $data['restaurant_id'] = $restaurant->id;
 
         if ($request->hasFile('thumb')) {
             $image = Storage::put('uploads', $data['thumb']);
             $data['thumb'] = $image;
-            // dd($image);
         }
 
         $new_product = Product::create($data);
 
-        return to_route('dashboard', $new_product);
+        return to_route('restaurants.show', $restaurant);
+
     }
 
     /**
@@ -130,7 +130,10 @@ class ProductController extends Controller
             $data['visible'] = true;
         }
 
-        
+        if ($request->hasFile('thumb')) {
+            $image = Storage::put('uploads', $data['thumb']);
+            $data['thumb'] = $image;
+        }
 
         $product->update($data);
 

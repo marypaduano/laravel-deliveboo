@@ -17,7 +17,8 @@ class Restaurant extends Model
         'restaurant_name',
         'address',
         'vat',
-        'user_id'
+        'user_id',
+        'restaurant_image'
     ];
 
     public function types(){
@@ -36,12 +37,19 @@ class Restaurant extends Model
         return $this->hasMany(Order::class);
     }
 
-    protected function thumbPath(): Attribute
+    protected function imagePath(): Attribute
     {
         return Attribute::make(
             get: function ($value, $attributes) {
-                return asset('storage/' . $attributes['thumb']);
+                return asset('storage/' . $attributes['restaurant_image']);
             }
         );
     }
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['image_path'];
 }

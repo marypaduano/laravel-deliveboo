@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('restaurant_name',50);
             $table->string('address',50);
             $table->string('vat',11);
-            $table->string('restaurant_image');
             $table->softDeletes();
             $table->timestamps();
         });

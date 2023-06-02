@@ -24,11 +24,11 @@
     <div id="app">
 
 
-        <nav class="navbar nav-main navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar nav-main navbar-expand-md navbar-light shadow-sm">
+            <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
-                        <img src="../public/logo-deliveboo1.png" alt="">
+                        <img src="../../../storage/img/logo-navbar-small.png" alt="">
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>

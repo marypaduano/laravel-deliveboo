@@ -1,29 +1,30 @@
-
-.section-homeRestaurant {
-    background-color: rgb(255, 204, 29);
-    // background-image: linear-gradient(rgb(255, 204, 0), rgba(214, 24, 24, 1));
-}
-
 .card {
-    background-color: transparent;
 
+    .box-image {
+        background-color: #fff;
+    }
 
-img {
-    width: 18rem;
-    height: 12rem;
+    img {
+        width: 18rem;
+        height: 12rem;
+    }
+
+    .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
 }
 
-.text-overflow {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.restaurant {
+    .restaurant-top {
+        p {
+            margin: 8px;
+        }
+    }
+
+    .box-image {
+        width: 60%;
+    }
 }
-
-}
-
-// .button-edit-delete {
-//     margin-top: auto;
-// }
-
-
-

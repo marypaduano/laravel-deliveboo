@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container py-4">
-    <a class="btn btn-primary btn-sm" href="{{route('products.create')}}">Aggiungi piatti</a>
+    <a class="btn btn-outline-primary btn-sm" href="{{route('products.create')}}">Aggiungi piatti</a>
 </div>
 <div class="container d-flex flex-wrap gap-3 p-4">
     @foreach ($products as $product)  

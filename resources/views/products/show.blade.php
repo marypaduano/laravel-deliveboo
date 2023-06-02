@@ -6,7 +6,7 @@
         <img src="{{ asset('storage/'.$product->thumb ) }}" width="100%" alt="">
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{$product->name}}</h5>
+      <h5 class="card-title" style="text-transform:uppercase;">{{$product->name}}</h5>
       <p class="card-text">Prezzo: &euro;{{$product->price}}</p>
       <p>Ingredienti: {{$product->ingredient}}</p>
       <div class="d-flex gap-2 justify-content-center">

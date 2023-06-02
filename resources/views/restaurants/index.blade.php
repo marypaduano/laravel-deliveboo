@@ -53,7 +53,7 @@
                 </div>
                 
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h5 class="card-title" style="text-transform:uppercase;">
                         <a href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
                     </h5>
                     <p class="card-text text-overflow">Ingredienti: {{ $product->ingredient }}</p>

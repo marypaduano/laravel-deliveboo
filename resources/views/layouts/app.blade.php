@@ -10,6 +10,9 @@
 
     <title>DeliveBoo</title>
 
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

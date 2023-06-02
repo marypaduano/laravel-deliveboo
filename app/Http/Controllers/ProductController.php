@@ -125,6 +125,8 @@ class ProductController extends Controller
             'restaurant_id' => 'exists:restaurants,id',
         ]);
 
+        $restaurant = Auth::user()->restaurants()->first();
+
         if (!isset($data['visible'])) {
             // Se il campo "visibilita" non è stato fornito, assegna il valore predefinito di true
             $data['visible'] = true;
@@ -136,8 +138,7 @@ class ProductController extends Controller
         }
 
         $product->update($data);
-
-        return to_route('dashboard', $product);
+        return to_route('restaurants.show', $restaurant);
     }
 
     /**

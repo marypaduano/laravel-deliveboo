@@ -141,7 +141,7 @@ class RestaurantController extends Controller
             $restaurant->types()->sync([]);
         }
 
-        return to_route('restaurants.index', $restaurant);
+        return to_route('dashboard', $restaurant);
 
     }
 

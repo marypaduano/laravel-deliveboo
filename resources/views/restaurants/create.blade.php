@@ -47,7 +47,7 @@
         </div>
         @endforeach
      
-    <button type="submit" class=" create_btn btn btn-primary">Crea</button>
+    <button type="submit" class=" create_btn btn button">Crea</button>
         
 
   </form>

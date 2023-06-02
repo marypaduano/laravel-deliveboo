@@ -1,6 +1,6 @@
 <nav class="navbar nav-main navbar-expand-md navbar-light bg-white shadow-sm" style="font-size: 18px;">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+        <a class="navbar-brand d-flex align-items-center" href="{{ url('dashboard') }}">
             <div class="logo_laravel">
                 <img src="/logo-deliveboo1.png" alt="logo" style="width: 100px;">
             </div>
@@ -14,9 +14,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
-                </li>
+                </li> -->
                 @auth
                 <li>
                     <a class="nav-link" href="{{route('dashboard')}}">{{__('Dashboard')}}</a>

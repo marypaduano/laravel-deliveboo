@@ -10,11 +10,11 @@
       <p class="card-text">Prezzo: &euro;{{$product->price}}</p>
       <p>Ingredienti: {{$product->ingredient}}</p>
       <div class="d-flex gap-2 justify-content-center">
-        <a class="btn btn-primary btn-sm" href="{{ route('products.edit', $product) }}">Modifica</a>
+        <a class="btn button btn-sm" href="{{ route('products.edit', $product) }}">Modifica</a>
           <form action="{{ route('products.destroy', $product) }}" method="POST">
             @csrf
             @method('DELETE')
-            <input class="btn btn-danger btn-sm" type="submit" value="Elimina">
+            <input class="btn button btn-sm" type="submit" value="Elimina">
           </form>
       </div>
     </div>

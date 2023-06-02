@@ -17,6 +17,10 @@
 
 }
 
+.main-content {
+    min-height: calc(100vh - 600px);
+}
+
 .restaurant {
     .restaurant-top {
         p {
@@ -27,4 +31,20 @@
     .box-image {
         width: 60%;
     }
+}
+
+.button {
+    background-color: rgb(255, 91, 0);
+    color: white;
+    font-weight: bold;
+
+    &:hover {
+        border: 1px solid rgb(255, 91, 0);
+        color: rgb(255, 91, 0);
+        background-color: white;
+    }
+}
+
+.card-title a{
+    color: rgb(255, 91, 0);
 }

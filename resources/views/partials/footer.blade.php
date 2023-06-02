@@ -1,3 +1,10 @@
+<section class="wave-section">
+    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 250">
+        <path fill="#FF5B00" fill-opacity="1"
+            d="M0,192L48,181.3C96,171,192,149,288,133.3C384,117,480,107,576,90.7C672,75,768,53,864,64C960,75,1056,117,1152,138.7C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
+    </svg>
+</section> 
 <section class="nav-footer">
     <div class="container">
         <div class="row d-flex">

@@ -3,7 +3,7 @@
 <div class="container py-5">
   <div class="card m-auto text-center" style="width: 18rem;">
     <div class="container py-5">
-        <img src="{{ asset('storage/'.$restaurant.product->thumb ) }}" width="100%" alt="">
+        <img src="{{ asset('storage/'.$product->thumb ) }}" width="100%" alt="">
     </div>
     <div class="card-body">
       <h5 class="card-title">{{$product->name}}</h5>

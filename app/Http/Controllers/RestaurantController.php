@@ -66,7 +66,7 @@ class RestaurantController extends Controller
             $new_restaurant->types()->attach($data['types']);
         }
 
-        return to_route('restaurants.show', $new_restaurant);
+        return to_route('dashboard', $new_restaurant);
     }
 
     /**
@@ -128,7 +128,7 @@ class RestaurantController extends Controller
             $restaurant->types()->sync([]);
         }
 
-        return to_route('restaurants.show', $restaurant);
+        return to_route('dashboard', $restaurant);
     }
 
     /**
@@ -141,6 +141,6 @@ class RestaurantController extends Controller
     {
         $restaurant->delete();
       
-        return to_route('restaurants.index');
+        return to_route('dashboard');
     }
 }

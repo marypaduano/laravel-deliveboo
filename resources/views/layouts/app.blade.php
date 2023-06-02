@@ -45,7 +45,7 @@
                         </li> -->
                         @auth
                         <li>
-                            <a class="nav-link" href="{{route('restaurants.index')}}">{{__('Dashboards')}}</a>
+                            <a class="nav-link" href="{{route('dashboard')}}">{{__('Dashboards')}}</a>
                         </li>
                         @endauth
 

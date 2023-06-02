@@ -21,20 +21,39 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('restaurants', RestaurantController::class)->parameters([
-    'restaurants' => 'restaurant:id'
-]); //VERIFICARE !!!
+// Route::resource('restaurants', RestaurantController::class)->parameters([
+//     'restaurants' => 'restaurant:id'
+// ]); //VERIFICARE !!!
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('restaurants', RestaurantController::class);
+    // Route::resource('restaurants', RestaurantController::class);
+    
+});
+
+Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function () {
+    // Mostra tutti i ristoranti
+    Route::get('/', [RestaurantController::class, 'index'])->name('dashboard');
+    // Crea un nuovo ristorante (form)
+    Route::get('/restaurants/create', [RestaurantController::class, 'create'])->name('restaurants.create');
+    // Salva il nuovo ristorante nel database
+    Route::post('/restaurants', [RestaurantController::class, 'store'])->name('restaurants.store');
+    // Mostra i dettagli del ristorante
+    Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show'])->name('restaurants.show');
+    // Modifica il ristorante (form)
+    Route::get('/restaurants/{restaurant}/edit', [RestaurantController::class, 'edit'])->name('restaurants.edit');
+    // Aggiorna il ristorante nel database
+    Route::put('/restaurants/{restaurant}', [RestaurantController::class, 'update'])->name('restaurants.update');
+    // Elimina il ristorante
+    Route::delete('/restaurants/{restaurant}', [RestaurantController::class, 'destroy'])->name('restaurants.destroy');
+
     Route::resource('products', ProductController::class);
     Route::resource('orders', OrderController::class);
 });

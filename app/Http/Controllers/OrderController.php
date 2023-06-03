@@ -17,8 +17,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $restaurant = Auth::user()->restaurants()->first();
-        $orders = Order::all()->where('restaurant_id',$restaurant->id);    
+        $restaurant = Auth::user()->restaurants()->first(); 
+        
+        $orders = Order::with('products')
+            ->where('restaurant_id', $restaurant->id )->where('status', 0)->orderBy('created_at', 'DESC')
+            ->paginate(10);
 
 
         return view('orders.index', compact('orders'));
@@ -42,7 +45,7 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        //????
     }
 
     /**
@@ -53,7 +56,16 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        return view('orders.show', compact('order'));
+        // Ottenere il ristorante associato all'ordine
+    $restaurant = $order->restaurant;
+
+    // Ottenere gli ordini associati al ristorante
+    $orders = $restaurant->orders;
+
+    // Ottenere i prodotti associati al ristorante
+    $products = $restaurant->products;
+
+    return view('orders.show', compact('order', 'orders', 'products'));
     }
 
     /**
@@ -76,7 +88,10 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        //
+        $data = $request->all();
+        $order->update();
+
+        return view('orders.show', compact('order'));
     }
 
     /**
@@ -89,4 +104,7 @@ class OrderController extends Controller
     {
         //
     }
+
+
+    
 }

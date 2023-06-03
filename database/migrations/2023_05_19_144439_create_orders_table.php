@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('client_name');
             $table->dateTime('date');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('address');
             $table->decimal('total_price', $precision = 4, $scale = 2);
             $table->timestamps();

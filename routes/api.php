@@ -23,3 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/restaurants/{id}', [RestaurantController::class, 'show']);
 
 Route::get('/restaurants', [RestaurantController::class,'index']);
+
+Route::post('/payment', function (Request $request) {
+    $order = $request->input('order');
+
+    // Esegui il resto della logica di backend utilizzando l'oggetto order
+
+    return response()->json(['message' => 'Pagamento elaborato con successo']);
+});

@@ -8,16 +8,16 @@
                 <th scope="col">Ordine ricevuto da:</th>
                 <th scope="col">Data ordine:</th>
                 <th scope="col">Indirizzo consegna:</th>
-                <th scope="col">prezzo:</th>
-                <th scope="col">DONE</th>
+                <th scope="col">Totale ordine:</th>
+                <th scope="col">Dettaglio ordine:</th>
+                <th scope="col">Ordine processato:</th>
             </thead>
             <tbody>
-              @foreach ($orders as $order)          
+
+              @foreach ($orders as $order)                      
                 <tr>
                   <td>
-                    <a href="{{ route('orders.show', $order) }}">
                       <strong>{{ $order->client_name }}</strong>
-                    </a>
                   </td>
                   <td>
                       <p>{{ $order->date }}</p>
@@ -28,12 +28,15 @@
                   <td>
                       <p>&euro; {{ $order->total_price}} </p>
                   </td>
+                  <td>                    
+                      <a class="btn button btn-sm"href="{{ route('orders.show', $order) }}">
+                        <p  style="margin-bottom:0;">codice: {{ $order->code }}</p>    
+                      </a>                    
+                  </td>
                   <td>
-                    <form action="{{ route('orders.destroy',$order) }}" method="POST">
-                      @csrf
-                      @method('DELETE')
-                      <input type="submit" class="btn btn-danger btn-sm" value="DELETE">
-                    </form>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input done" type="checkbox" id="flexSwitchCheckChecked" checked>
+                    </div>
                   </td>            
                 </tr>
                     
@@ -43,3 +46,26 @@
     </div>
 
 @endsection
+
+<style>
+  .done{
+    background-color: #6fff6f36;
+    opacity: 0.5;
+  }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+      $('.done').on('change', function() {
+          let row = $(this).closest('tr');
+          
+          if ($(this).is(':checked')) {
+            row.removeClass('done');
+          } else {
+            row.addClass('done');
+          }
+      });
+  });
+  </script>

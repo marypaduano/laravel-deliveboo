@@ -19,8 +19,9 @@ class OrderSeeder extends Seeder
      */
     public function run(Faker $faker)
     {   
+
         $product_ids = Product::all()->pluck('id');
-        $restaurant_id = Restaurant::all()->pluck('id')->all();
+        $restaurant_id = Restaurant::all()->pluck('id')->toArray();
 
         for ($i = 0; $i < 30; $i++) {
             $order = new Order();

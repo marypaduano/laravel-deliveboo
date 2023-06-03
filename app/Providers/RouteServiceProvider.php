@@ -36,7 +36,15 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        Route::apiResource('restaurants', RestaurantController::class);
+        Route::apiResource('types', TypeController::class);
+        Route::post('order', [OrderController::class, 'store']);
     }
+
+    
+
+   
 
     /**
      * Configure the rate limiters for the application.

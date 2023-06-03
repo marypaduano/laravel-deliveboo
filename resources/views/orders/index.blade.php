@@ -9,6 +9,7 @@
                 <th scope="col">Data ordine:</th>
                 <th scope="col">Indirizzo consegna:</th>
                 <th scope="col">Totale ordine:</th>
+                <th scope="col">Dettaglio ordine:</th>
                 <th scope="col">Ordine processato:</th>
             </thead>
             <tbody>
@@ -26,6 +27,11 @@
                   </td>
                   <td>
                       <p>&euro; {{ $order->total_price}} </p>
+                  </td>
+                  <td>                    
+                      <a class="btn button btn-sm"href="{{ route('orders.show', $order) }}">
+                        <p  style="margin-bottom:0;">codice: {{ $order->code }}</p>    
+                      </a>                    
                   </td>
                   <td>
                     <div class="form-check form-switch">

@@ -31,7 +31,11 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $restaurant = Auth::user()->restaurants()->first();
+        $orders = Order::all()->where('restaurant_id',$restaurant->id);    
+
+
+        return view('orders.create', compact('orders'));
     }
 
     /**
@@ -42,24 +46,28 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        // Esempi di validazione dei dati
-        $validate = $request->validate([
-            'client_name' => 'required|string',
-            'email' => 'required|email',
-            // Altri campi richiesti nell'ordine
+        $data = $request->validate([
+            'client_name' => 'required|max:50',
+            'date' => 'required',
+            'code' => 'required',
+            'address' => 'required',
+            'total_price' =>'required',
+            'restaurant_id' => 'exists:restaurants,id',
         ]);
 
-        // Creazione di un nuovo ordine
-        $order = new Order();
-        $order->client_name = $validate['client_name'];
-        $order->email = $validatedData['email'];
-        // Imposta gli altri campi dell'ordine
+        $restaurant = Auth::user()->restaurants()->first();
 
-        // Salva l'ordine nel database
-        $order->save();
+        $data['restaurant_id'] = $restaurant->id;
+
+
+        $new_order = Order::create($data);
 
         // Ritorna una risposta di successo
         return response()->json(['message' => 'Ordine inviato con successo'], 201);
+
+        return to_route('orders.index', $restaurant);
+
+        
     }
     
 
@@ -105,6 +113,6 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        
     }
 }

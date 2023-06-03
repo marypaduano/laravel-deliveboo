@@ -88,7 +88,10 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        //
+        $data = $request->all();
+        $order->update();
+
+        return view('orders.show', compact('order'));
     }
 
     /**

@@ -17,8 +17,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $restaurant = Auth::user()->restaurants()->first();
-        $orders = Order::all()->where('restaurant_id',$restaurant->id);    
+        $restaurant = Auth::user()->restaurants()->first(); 
+        
+        $orders = Order::with('products')
+            ->where('restaurant_id', $restaurant->id )->orderBy('created_at', 'DESC')
+            ->paginate(10);
 
 
         return view('orders.index', compact('orders'));
@@ -31,11 +34,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $restaurant = Auth::user()->restaurants()->first();
-        $orders = Order::all()->where('restaurant_id',$restaurant->id);    
-
-
-        return view('orders.create', compact('orders'));
+        //
     }
 
     /**
@@ -46,30 +45,8 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        $data = $request->validate([
-            'client_name' => 'required|max:50',
-            'date' => 'required',
-            'code' => 'required',
-            'address' => 'required',
-            'total_price' =>'required',
-            'restaurant_id' => 'exists:restaurants,id',
-        ]);
-
-        $restaurant = Auth::user()->restaurants()->first();
-
-        $data['restaurant_id'] = $restaurant->id;
-
-
-        $new_order = Order::create($data);
-
-        // Ritorna una risposta di successo
-        return response()->json(['message' => 'Ordine inviato con successo'], 201);
-
-        return to_route('orders.index', $restaurant);
-
-        
+        //????
     }
-    
 
     /**
      * Display the specified resource.
@@ -79,7 +56,16 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        return view('orders.show', compact('order'));
+        // Ottenere il ristorante associato all'ordine
+    $restaurant = $order->restaurant;
+
+    // Ottenere gli ordini associati al ristorante
+    $orders = $restaurant->orders;
+
+    // Ottenere i prodotti associati al ristorante
+    $products = $restaurant->products;
+
+    return view('orders.show', compact('order', 'orders', 'products'));
     }
 
     /**
@@ -113,6 +99,8 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        
+        //
     }
+
+    
 }

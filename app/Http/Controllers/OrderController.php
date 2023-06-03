@@ -42,8 +42,26 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        // Esempi di validazione dei dati
+        $validate = $request->validate([
+            'client_name' => 'required|string',
+            'email' => 'required|email',
+            // Altri campi richiesti nell'ordine
+        ]);
+
+        // Creazione di un nuovo ordine
+        $order = new Order();
+        $order->client_name = $validate['client_name'];
+        $order->email = $validatedData['email'];
+        // Imposta gli altri campi dell'ordine
+
+        // Salva l'ordine nel database
+        $order->save();
+
+        // Ritorna una risposta di successo
+        return response()->json(['message' => 'Ordine inviato con successo'], 201);
     }
+    
 
     /**
      * Display the specified resource.

@@ -8,7 +8,7 @@
                 <th scope="col">Ordine ricevuto da:</th>
                 <th scope="col">Data ordine:</th>
                 <th scope="col">Indirizzo consegna:</th>
-                <th scope="col">prezzo:</th>
+                <th scope="col">Totale ordine:</th>
                 <th scope="col">DONE</th>
             </thead>
             <tbody>

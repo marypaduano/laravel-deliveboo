@@ -24,6 +24,7 @@
             </form>
             <a class="btn button btn-sm" href="{{route('products.create')}}">Aggiungi piatti</a>
             <a class="btn button btn-sm" href="{{ route('restaurants.show', $restaurant) }}">Visualizza piatti</a>
+            <a class="btn button btn-sm" href="{{ route('orders.index', $restaurant) }}">Visualizza gli ordini</a>
         </div>
         <div class="box-image">
             <img src="{{ asset('storage/'.$restaurant->restaurant_image ) }}" width="100%" alt="">

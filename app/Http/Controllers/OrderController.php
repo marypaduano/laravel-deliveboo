@@ -20,7 +20,7 @@ class OrderController extends Controller
         $restaurant = Auth::user()->restaurants()->first(); 
         
         $orders = Order::with('products')
-            ->where('restaurant_id', $restaurant->id )->where('status', 0)->orderBy('created_at', 'DESC')
+            ->where('restaurant_id', $restaurant->id )->orderBy('created_at', 'DESC')
             ->paginate(10);
 
 

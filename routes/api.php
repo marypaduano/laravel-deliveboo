@@ -24,10 +24,13 @@ Route::get('/restaurants/{id}', [RestaurantController::class, 'show']);
 
 Route::get('/restaurants', [RestaurantController::class,'index']);
 
-Route::post('/payment', function (Request $request) {
-    $order = $request->input('order');
+Route::post('/orders', function (Request $request) {
+    // Ricevi i dati inviati dal client
+    $data = $request->all();
 
-    // Esegui il resto della logica di backend utilizzando l'oggetto order
+    // Eseguire le operazioni necessarie con i dati ricevuti
 
-    return response()->json(['message' => 'Pagamento elaborato con successo']);
+    // Restituisci una risposta al client (ad esempio, un messaggio di successo)
+    return response()->json(['message' => 'Ordine ricevuto con successo']);
+    // return response()->json(['data' => $data]);
 });

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\RestaurantController;
+use App\Http\Controllers\Api\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Restaurant;
@@ -24,13 +25,4 @@ Route::get('/restaurants/{id}', [RestaurantController::class, 'show']);
 
 Route::get('/restaurants', [RestaurantController::class,'index']);
 
-Route::post('/orders', function (Request $request) {
-    // Ricevi i dati inviati dal client
-    $data = $request->all();
-
-    // Eseguire le operazioni necessarie con i dati ricevuti
-
-    // Restituisci una risposta al client (ad esempio, un messaggio di successo)
-    return response()->json(['message' => 'Ordine ricevuto con successo']);
-    // return response()->json(['data' => $data]);
-});
+Route::post('/orders', [OrderController::class, 'store']);

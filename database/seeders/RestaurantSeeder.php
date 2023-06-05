@@ -20,7 +20,7 @@ class RestaurantSeeder extends Seeder
     public function run(Faker $faker)
     {
         $type_ids = Type::all()->pluck('id')->all();
-        $restaurants = ['Mc Donald', 'Kfc', 'Old Wild West', 'Oro dell\'\etna', 'Fenice Azzurra', 'Sushi World'];
+        $restaurants = ['Fenice Azzurra', 'Sushi World'];
         $user_ids = User::all()->pluck('id')->all();
  
         foreach ($restaurants as $restaurant) {

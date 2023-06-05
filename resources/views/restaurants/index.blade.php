@@ -20,10 +20,7 @@
             <a class="btn button btn-sm" href="{{ route('restaurants.show', $restaurant) }}">Visualizza piatti</a>
             <a class="btn button btn-sm" href="{{ route('orders.index', $restaurant) }}">Visualizza gli ordini</a>
         </div>
-        <div class="box-image">
-            <img src="{{ asset('storage/'.$restaurant->restaurant_image ) }}" width="100%" alt="">
-        </div>
-        <div class="d-flex gap-2 py-5">
+        <div class="d-flex justify-content-center gap-2 button-edit-delete">
             <a class="btn btn-sm btn-warning" href="{{route('restaurants.edit',$restaurant)}}">Modifica ristorante</a>
                 <form action="{{ route('restaurants.destroy', $restaurant) }}" method="POST">
                     @csrf
@@ -31,6 +28,10 @@
                     <input class="btn btn-sm btn-danger" type="submit" value="Elimina ristorante">
                 </form>
         </div>
+        <div class="box-image">
+            <img src="{{ asset('storage/'.$restaurant->restaurant_image ) }}" width="100%" alt="">
+        </div>
+        
     </div>
         @endforeach
         @endif

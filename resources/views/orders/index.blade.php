@@ -37,7 +37,14 @@
                     <div class="form-check form-switch">
                       <input class="form-check-input done" type="checkbox" id="flexSwitchCheckChecked" checked>
                     </div>
-                  </td>            
+                  </td> 
+                  <td>
+                    <form action="{{ route('orders.destroy', $order) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <input class="btn btn-sm btn-danger" type="submit" value="Elimina">
+                  </form>
+                  </td>           
                 </tr>
                     
               @endforeach 

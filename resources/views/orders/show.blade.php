@@ -33,22 +33,43 @@
 </div>
 
 <div class="container">
-    <h1 class="text-center py-5">Prodotti da consegnare</h1>
-    @foreach ($order->products as $product)                      
-                <tr>
-                  <td>
-                      <strong>{{$product->name}}</strong>
-                  </td>
-                  <td>
-                      <p>{{$product->price}}</p>
-                  </td>
-                  <td>
-                      <p>{{$product->amount}}</p>
-                  </td>
-                           
-                </tr>
+    <h1 class="text-center py-5">Prodotti da consegnare</h1> 
+    <table class="table">
+    <thead>
+        <tr>
+          <th scope="col">Prodotto</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Quantità</th>
+          <th scope="col">Prezzo</th>
+      </thead>
+      <tbody>
+        @foreach ($order->products as $product)                 
+          <tr>
+            <td>
+                <img src="{{ asset('storage/'.$product->thumb ) }}" width="30%" alt="preview-img">                    
+             
+            </td>
+            <td>
+                <strong>{{$product->name}}</strong>
+            </td>
+            <td>
+                <p>x 1</p>
+            </td>
+            <td>
+                <p>&euro; {{$product->price}}</p>
+            </td>
+            
+          <td>
+            @endforeach 
+  </table>         
                     
-              @endforeach 
+
 </div>
 
 @endsection
+
+<style>
+    img{
+        width: 150px;
+    }
+</style>

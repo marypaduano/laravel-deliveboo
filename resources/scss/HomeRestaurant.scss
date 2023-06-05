@@ -48,3 +48,25 @@
 .card-title a{
     color: rgb(255, 91, 0);
 }
+
+@media (max-width: 768px) {
+
+    .button-restaurant {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+    }
+
+    .box-image {
+        width: 380px !important;
+
+        img {
+            width: 100% !important;
+            padding: 8px;
+            margin-top: 18px;
+            margin-bottom: 30px;
+        }
+    }
+
+}

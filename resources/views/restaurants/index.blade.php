@@ -2,7 +2,7 @@
 @section('content')
 
 <section class="restaurant">
-    <div class="container text-center d-flex flex-column align-items-center">
+    <div class="container section-home text-center d-flex flex-column align-items-center">
         @if ($restaurants->isEmpty())
             <div class=" container py-3">
                 <a class="btn btn-primary" href="{{route('restaurants.create')}}">Aggiungi ristorante</a>
@@ -15,7 +15,7 @@
             <p>Indirizzo: {{ $restaurant->address }}</p>
             <p>partita IVA: {{ $restaurant->vat }}</p>
         </div>
-        <div class="d-flex gap-2 py-5">
+        <div class="d-flex gap-2 py-5 button-restaurant">
             <a class="btn button btn-sm" href="{{route('restaurants.edit',$restaurant)}}">Modifica ristorante</a>
             <form action="{{ route('restaurants.destroy', $restaurant) }}" method="POST">
                 @csrf

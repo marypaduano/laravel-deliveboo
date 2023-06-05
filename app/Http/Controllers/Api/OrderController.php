@@ -41,7 +41,9 @@ class OrderController extends Controller
         }
 
         return response()->json([
-            'success' => true
-        ]);
-     }
+            'success' => true,
+            'response' => 'il pagamento è andato a buon fine'
+        ]); 
+    }
+
 }

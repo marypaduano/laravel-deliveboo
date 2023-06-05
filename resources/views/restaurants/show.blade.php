@@ -1,19 +1,23 @@
 @extends('layouts.app')
 @section('content')
-<div class="container py-5">
-    <h3 class="py-5">{{$restaurant->restaurant_name}}</h3>
-    <p>Indirizzo: {{$restaurant->address}}</p>
-    <p>Partita IVA: {{$restaurant->vat}}</p>
-    <p>Tipologia ristorante: 
-    @forelse ($restaurant->types as $type)
-    {{$type->name}}
-    @empty
-    @endforelse
+
+<div class="container pt-5 text-center">
+    <h3 style="text-transform: uppercase;">{{ $restaurant->restaurant_name }}</h3>
+    <p>Indirizzo: {{ $restaurant->address }}</p>
+    <p>partita IVA: {{ $restaurant->vat }}
+    <h6 class="py-3"><i>Tipologia ristorante</i></h6>
+    <div  class="d-flex gap-3 justify-content-center">     
+        @forelse ($restaurant->types as $type)
+        <p class="type">{{$type->name}}</p>
+        @empty
+        @endforelse
     </p>
 </div>
+</div>
 
-<div class="container py-4">
+<div class="container py-4 d-flex gap-3 justify-content-center">
     <a class="btn button btn-sm" href="{{route('products.create')}}">Aggiungi piatti</a>
+    <a class="btn button btn-sm" href="{{route('dashboard')}}">Torna alla tua Dashboard</a>
 </div>
 <div class="container d-flex flex-wrap gap-3 p-4">
     @foreach ($products as $product)  
@@ -42,4 +46,14 @@
 </div>
 
 @endsection
+
+<style>
+    .type{
+        background-color: yellowgreen;
+        padding: 3px 13px;
+        border-radius: 20px;
+        color: white;
+        font-weight: 700;
+    }
+</style>
 

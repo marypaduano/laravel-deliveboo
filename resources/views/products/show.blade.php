@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container py-5">
+  <a class="btn button btn-sm mb-3" href="{{route('dashboard')}}">Torna alla tua Dashboard</a>
   <div class="card m-auto text-center" style="width: 18rem;">
     <div class="container py-5">
         <img src="{{ asset('storage/'.$product->thumb ) }}" width="100%" alt="">

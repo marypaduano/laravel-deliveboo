@@ -32,8 +32,10 @@
                 </h5>
                 <p class="card-text text-overflow">Ingredienti: {{ $product->ingredient }}</p>
                 <p class="card-text text-overflow">Prezzo: {{ $product->price }}</p>
-                <div class="d-flex justify-content-center gap-2 button-edit-delete">
-                    <a class="btn button btn-sm" href="{{route('products.edit',$product)}}">Modifica</a>
+                <div class="d-flex justify-content-center gap-2">
+                    <span>
+                        <a class="btn button btn-sm" href="{{route('products.edit',$product)}}">Modifica</a>
+                    </span>
                     <form action="{{ route('products.destroy', $product) }}" method="POST">
                         @csrf
                         @method('DELETE')
